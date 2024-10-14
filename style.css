@@ -155,8 +155,7 @@ sup a:hover {
 
     .book-menu {
         width: 100%;
-        position: relative;
-        left: 0;
+        position: top;
     }
 }
 
