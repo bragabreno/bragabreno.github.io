@@ -4,57 +4,113 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="Breno A. Braga"/>
-    <meta name="description" content="todo"/>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Sistemas de numeração e os Axiomas de Peano"/>
+    <link rel="stylesheet" href="style/style.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Os números naturais e os sistemas de numeração</title>
 </head>
 
 <body>
-    <h1>Representações númericas</h1>
-    <hr>
-    <em>Breno A. Braga &bull; outubro de 2024</em>
-    <h2>A representação unária</h2>
-
-    <p>Uma noção bastante natural de contagem é aquela em que se associa um único símbolo à(s) ocorrência(s) de um objeto ou evento<sup><a href="#nota1">[1]</a></sup>, de modo que se mantenha registro da quantidade de vezes em que eles acontecem.</p>
-
-    <p>Quer dizer, considere o símbolo \(|\). De início, enquanto não houver contagem, não há nada escrito. Por convenção, ter-se-ia <em>' '</em> (sem as aspas, isto é, um espaço em branco). No entanto, à medida em que certo evento ou objeto ocorre, que se escreva \(|\). </p>
-
-    <p>Caso já exista uma cadeia escrita (isto é, caso já houver registro de realizações do evento/objeto), basta escrever \(|\), concatenando o símbolo escrito à cadeia. Assim, tem-se:</p>
-    
-    <p>\[|,\ ||,\ |||,\ ||||,\ ...\]</p>
-    
-    <p>A essa representação, chamamos <strong>representação numérica unária</strong>. E, como já foi mencionado, é uma notação que descreve bem a noção intuitiva de contagem (é aplicada quando contamos com os dedos, por exemplo).</p>
-
-    <p>Além disso, também é possível traçar uma relação direta entre essa representação e a noção formal de um número natural. É o que se mostrará a seguir, através de uma enunciação (não tão rigorosa, mas suficiente para os nossos fins) dos Axiomas de Peano, que determinam o conjunto \( \mathbb{N} \) dos números naturais.</p>
-
-    <ul>
-        <li><strong>Axioma 1:</strong> Há um número natural chamado zero;</li>
-        <li><strong>Axioma 2:</strong> Há uma função \(S: \mathbb{N} \rightarrow \mathbb{N}\) chamada "sucessor", de modo que, se \(n\) é um número natural, então também \(S(n)\), o sucessor de \(n\), o é;</li>
-        <li><strong>Axioma 3:</strong> Para qualquer número natural \(n\), o zero não pode ser representado como \(S(n)\). Isto é, o zero não é sucessor de nenhum outro número;</li>
-        <li><strong>Axioma 4:</strong> Para quaisquer números naturais  \(m\) e \(n\), se \(S(n) = S(m)\), então \(n = m\);</li>
-        <li><strong>Axioma 5:</strong> Dado um certo conjunto \(X\), se o zero pertence a \(X\) e, também, \(S\) pertence a \(X\). Então, \(X\) contém todos os números naturais.</li>
-    </ul>
-
-    <p>Para que usemos a notação simbólica (proposta inicialmente) a fim de nos referirmos à sistematização de Peano, seguem-se as seguintes definições<sup><a href="#nota2">[2]</a></sup>:</p>
-
-    <ul>
-        <li>\(\ \ := zero\);</li>
-        <li>\(|\ := S(zero)\);</li>
-        <li>\(||:= S(S(zero))\);</li>
-        <li>\(|||:= S(S(S(zero)))\);</li>
-        <li style="list-style-type: none; padding: 0;">\(\vdots\)</li>
-        <li>\(|^n\ := S^n(zero)\);</li>
-        <li style="list-style-type: none; padding: 0;">\(\vdots\)</li>
-    </ul>
-
-<footer>
-    <div class="footnotes">
-        <hr>
-        <ol>
-            <li id="nota1">Propositalmente, não foi dada uma definição rigorosa para os conceitos de "objeto" e "evento". Assim, podemos retratar da forma mais geral possível a ideia intuitiva de "contagem".</li>
-            <li id="nota2">Aqui, \(:=\) denota "está definido como". Quer dizer, em todas as ocorrências dos símbolos à esquerda de \(:=\), o significado é aquele representado pelo que está à direita de \(:=\).</li>
-        </ol>
+    <div class="logo-container">
+        <img src="floppy-disk-icon.jpeg" alt="Floppy Disc Icon" class="logo-icon">
+        <h1 class="logo-text">Memória Secundária</h1>
     </div>
+    
+    <br>
+
+    <nav class="head-menu">
+        <ul>
+            <li><a href="#TODO">Índices</a></li> 
+            <li><a href="#TODO">Sobre o site</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Representações numéricas</h1>
+    </header>
+
+    <nav class="book-menu">
+        <input type="checkbox" id="toggle1" class="toggle">
+        <label for="toggle1" aria-controls="menu-list" aria-expanded="false">Seções</label>
+        <ul id="menu-list">
+            <li><a href="#unary-representation">Representação Unária</a></li>
+            <li><a href="#setting-up-notation">Definição de notação</a></li>
+            <li><a href="#basic-operations">Operações Básicas</a></li>
+            <li><a href="#operation-examples">Exemplos de Operações</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <article id="unary-representation">
+            <h2>A representação unária</h2>
+            <p>Uma noção bastante natural de contagem é aquela em que se associa um único símbolo à(s) ocorrência(s) de um objeto ou evento<sup><a href="#nota1" aria-label="Ir para a nota 1">[1]</a></sup>, de modo que se mantenha registro da quantidade de vezes em que eles acontecem.</p>
+            <p>Quer dizer, considere o símbolo \(|\). De início, enquanto não houver contagem, não há nada escrito. Por convenção, ter-se-ia <em>' '</em> (sem as aspas, isto é, um espaço em branco). No entanto, à medida em que certo evento ou objeto ocorre, que se escreva \(|\).</p>
+            <p>Caso já exista uma cadeia escrita (isto é, caso já houver registro de realizações do evento/objeto), basta escrever \(|\), concatenando o símbolo escrito à cadeia. Assim, tem-se:</p>
+            <div>\[|,\ ||,\ |||,\ ||||,\ ...\]</div>
+            <p>A essa representação, chamamos <strong>representação numérica unária</strong>. E, como já foi mencionado, é uma notação que descreve bem a noção intuitiva de contagem (é aplicada quando contamos com os dedos, por exemplo).</p>
+            <p>Além disso, também é possível traçar uma relação direta entre essa representação e a noção formal de um número natural. É o que se mostrará a seguir, através de uma enunciação (não tão rigorosa, mas suficiente para os nossos fins) dos Axiomas de Peano, que determinam o conjunto \( \mathbb{N} \) dos números naturais.</p>
+            <ul>
+                <li><strong>Axioma 1:</strong> Há um número natural chamado zero;</li>
+                <li><strong>Axioma 2:</strong> Há uma função \(S: \mathbb{N} \rightarrow \mathbb{N}\) chamada "sucessor", de modo que, se \(n\) é um número natural, então também \(S(n)\), o sucessor de \(n\), o é;</li>
+                <li><strong>Axioma 3:</strong> Para qualquer número natural \(n\), o zero não pode ser representado como \(S(n)\). Isto é, o zero não é sucessor de nenhum outro número;</li>
+                <li><strong>Axioma 4:</strong> Para quaisquer números naturais  \(m\) e \(n\), se \(S(n) = S(m)\), então \(n = m\);</li>
+                <li><strong>Axioma 5:</strong> Dado um certo conjunto \(X\), se o zero pertence a \(X\) e, também, \(S\) pertence a \(X\), então \(X\) contém todos os números naturais.</li>
+            </ul>
+        </article>
+
+        <article id="setting-up-notation">
+            <h2>Definição de notação</h2>
+            <p>Para que usemos a notação simbólica (proposta inicialmente) a fim de nos referirmos à sistematização de Peano, seguem-se as seguintes definições<sup><a href="#nota2">[2]</a></sup>:</p>
+            <ul>
+                <li>\(\ \ := zero\);</li>
+                <li>\(|\ := S(zero)\);</li>
+                <li>\(||:= S(S(zero))\);</li>
+                <li>\(|||:= S(S(S(zero)))\);</li>
+                <li style="list-style-type: none; padding: 0;">\(\vdots\)</li>
+                <li>\(|^n\ := S^n(zero)\);</li>
+                <li style="list-style-type: none; padding: 0;">\(\vdots\)</li>
+            </ul>
+        </article>
+
+        <article id="basic-operations">
+            <h2>Operações básicas</h2>
+            <p>Agora, introduziremos os axiomas que definem as operações básicas \(+\) (adição) e \(\cdot\) (multiplicação), que são essenciais para que se desenvolvam construções mais complexas com os números naturais:</p>
+            <ul>
+                <li><strong>A1:</strong> Para todo número natural \(n\), \(n + zero = n\); </li>
+                <li><strong>A2:</strong> Para quaisquer números naturais \(m\), \(n\), \(m + S(n) = S(m + n);\</li>
+                <li><strong>M1:</strong> Para todo número natural \(n\), \(n \cdot zero = zero;\)</li>
+                <li><strong>M2:</strong> Para quaisquer números naturais \(m\), \(n\), \(m \cdot S(n) = (m \cdot n) + m.</li>
+            </ul>
+        </article>
+            
+        <article id="operation-examples">
+            <h2>Exemplos de operações</h2>
+            <p>Dessa maneira, já conseguimos realizar operações fazendo uso da notação que definimos:</p>
+            <strong>Soma</strong>
+            <div>\[| + || = S(zero) + S(S(zero))\]</div>
+            <div>\[= S(S(zero) + S(zero))\]</div>
+            <div>\[= S(S(S(zero) + zero))\]</div>
+            <div>\[= S(S(S(zero))) = |||\]</div>
+
+            <strong>Multiplicação</strong>
+            <div>\[|| \cdot ||| = S(S(zero)) \cdot S(S(S(zero)))\]</div>
+            <div>\[= (S(S(zero)) \cdot S(S(zero))) + S(S(zero))\]</div>
+            <div>\[= ((S(S(zero)) \cdot S(zero)) + S(S(zero))) + S(S(zero))\]</div>
+            <div>\[= (((S(S(zero)) \cdot zero) + S(S(zero))) + S(S(zero))) + S(S(zero))\]</div>
+            <div>\[= (((zero) + S(S(zero))) + S(S(zero))) + S(S(zero))\]</div>
+            <div>\[= S(S(S((S(S(zero))))) + S(zero))\]</div>
+            <div>\[= S(S(S(S((S(S(zero))))) + zero)) = S(S(S(S((S(S(zero))))))) = ||||||\]</div>
+        </article>
+    </main>
+
+    <footer>
+        <aside class="footnotes">
+            <hr>
+            <ol>
+                <li id="nota1">Propositalmente, não foi dada uma definição rigorosa para os conceitos de "objeto" e "evento". Assim, podemos retratar da forma mais geral possível a ideia intuitiva de "contagem".</li>
+                <li id="nota2">Aqui, \(:=\) denota "está definido como". Quer dizer, em todas as ocorrências dos símbolos à esquerda de \(:=\), eles têm o mesmo significado.</li>
+            </ol>
+        </aside>
+    </footer>
 </body>
 </html>
