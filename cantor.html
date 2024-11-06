@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Breno A. Braga, Alan Barbosa Lima" />
+    <meta name="description" content="O Conjunto de Cantor é não-enumerável" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <title>O Conjunto de Cantor é não-enumerável</title>
+  </head>
+
+  <body>
+    <!--<div class="logo-container">
+        <img src="floppy-disk-icon.jpeg" alt="Floppy Disc Icon" class="logo-icon">
+        <h1 class="logo-text">Memória Secundária</h1>
+    </div>
+
+    <br>
+
+    <nav class="head-menu">
+        <ul>
+            <li><a href="#TODO">Índices</a></li> 
+            <li><a href="#TODO">Sobre o site</a></li>
+        </ul>
+    </nav>-->
+
+    <header>
+      <h1>O Conjunto de Cantor é não-enumerável</h1>
+      <p><em>Breno Augusto Braga, Alan Barbosa Lima • outubro de 2024</em></p>
+    </header>
+
+    <main>
+      <section>
+        <h2>O conjunto de Cantor</h2>
+        <p>
+          O conjunto de Cantor é um subconjunto dos números reais definido como
+          se segue:
+        </p>
+        <p>
+          \[ C_0 = [0, 1]\] \[C_1 = \left[0, \frac{1}{3}\right] \cup
+          \left[\frac{2}{3}, 1\right]\] \[C_2 = \left[0, \frac{1}{9}\right] \cup
+          \left[\frac{2}{9}, \frac{1}{3}\right] \cup \left[\frac{2}{3},
+          \frac{7}{9}\right] \cup \left[\frac{8}{9}, 1\right] \] \[\vdots\]
+        </p>
+        <p>\[ C = \bigcap_{n=0}^{\infty} C_n \]</p>
+        <p>
+          Noutras palavras, para se construir o conjunto de Cantor, começa-se
+          com o intervalo \([0,1]\) e, em cada etapa, é removido o terço central
+          de cada intervalo restante, dividindo cada segmento em duas partes: a
+          esquerda e a direita.
+        </p>
+        <div
+          class="image-container"
+          style="text-align: center; padding-top: 20px"
+        >
+          <img
+            src="cantorset.gif"
+            alt="Visualização das iterações sobre a criação do conjunto de Cantor"
+            width="300"
+            height="200"
+          />
+        </div>
+      </section>
+
+      <section>
+        <h2>Árvore Binária</h2>
+        <p>
+          Uma árvore binária é uma tripla \( T = (v, E, D) \), onde \( v \in
+          \mathbb{N} \) e \( E \) e \( D \) são árvores binárias. O átomo de uma
+          árvore binária (considerando, isoladamente, uma única etapa do
+          processo de recursão) é denominado “nó”.
+        </p>
+        <p>
+          Em relação a \( T \), a \( E \) chama-se subárvore esquerda e a \( D
+          \), subárvore direita. E, se considerada a perspectiva de nó de \( E
+          \) e de \( D \), eles são definidos como “nós filhos” de \( T \), que
+          é o seu “nó pai”.
+        </p>
+        <p>
+          A relação de descendência entre dois nós é dada por uma única aresta
+          (um par ordenado) \( a \) que os liga, sendo \( a = (P, F) \), onde \(
+          P \) é nó pai e \( F \) é um de seus dois nós filhos.
+        </p>
+        <p>
+          Um caminho numa árvore binária é uma sequência ordenada de nós, onde
+          cada nó consecutivo na sequência é descendente do nó anterior.
+          Formalmente, um caminho de um nó \( N \) a outro nó \( M \) é uma
+          sequência de nós \( N_1, N_2, \dots, N_k \), onde \( N_1 = N \) e \(
+          N_k = M \) e, para cada \( i \) de \( 1 \) a \( k-1 \), existe uma
+          aresta \( (N_i, N_{i+1}) \), com \(i,k \in \mathbb{N}\), na árvore.
+          Nesse caso, também é dito que \( M \) é descendente indireto de \( N
+          \).
+        </p>
+        <p>
+          Se \( R = (v, E_R, D_R) \), mas não existe nenhuma aresta \( a \) tal
+          que \( a = (P_R, R) \), considerando \( P_R \) um nó de uma árvore
+          binária qualquer, então \( R \) é único e é chamado de nó raiz da
+          árvore.
+        </p>
+        <p>
+          Diz-se que um certo nó se encontra no nível \( 0 \) de um árvore
+          binária se é o nó raiz. Do contrário, o nó é dito estar no nível \( n
+          \), sendo \( n \) o número de arestas do caminho que o liga ao nó
+          raiz.
+        </p>
+
+        <div class="binary-tree" style="text-align: center">
+          <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <svg
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 265.09866 151.71201"
+            height="151.71201"
+            width="265.09866"
+            xml:space="preserve"
+            id="svg2"
+            version="1.1"
+          >
+            <metadata id="metadata8">
+              <rdf:RDF
+                ><cc:Work rdf:about=""
+                  ><dc:format>image/svg+xml</dc:format
+                  ><dc:type
+                    rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work
+              ></rdf:RDF>
+            </metadata>
+            <defs id="defs6" />
+            <g transform="matrix(1.3333333,0,0,-1.3333333,0,151.712)" id="g10">
+              <g transform="translate(99.412,99.412)" id="g12">
+                <g id="g14">
+                  <g id="g16">
+                    <g id="g18">
+                      <path
+                        id="path20"
+                        style="
+                          fill: none;
+                          stroke: #ffffff;
+                          stroke-width: 0.3985;
+                          stroke-linecap: butt;
+                          stroke-linejoin: miter;
+                          stroke-miterlimit: 10;
+                          stroke-dasharray: none;
+                          stroke-opacity: 1;
+                        "
+                        d="M 14.17339,0 C 14.17339,7.82784 7.82784,14.17339 0,14.17339 -7.82784,14.17339 -14.17339,7.82784 -14.17339,0 c 0,-7.82784 6.34555,-14.17339 14.17339,-14.17339 7.82784,0 14.17339,6.34555 14.17339,14.17339 z"
+                      />
+                      <g transform="translate(-2.491,-3.21)" id="g22">
+                        <g id="g24">
+                          <g transform="translate(-96.921,-96.202)" id="g26">
+                            <text
+                              id="text30"
+                              style="
+                                font-variant: normal;
+                                font-weight: normal;
+                                font-size: 9.96259975px;
+                                font-family: CMR10;
+                                -inkscape-font-specification: CMR10;
+                                writing-mode: lr-tb;
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              transform="matrix(1,0,0,-1,96.921,96.202)"
+                            >
+                              <tspan id="tspan28" y="0" x="0">0</tspan>
+                            </text>
+                            <g transform="translate(96.921,96.202)" id="g32" />
+                          </g>
+                        </g>
+                        <g transform="translate(2.491,3.21)" id="g34" />
+                      </g>
+                    </g>
+                    <g id="g36">
+                      <g id="g38">
+                        <path
+                          id="path40"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="m -42.52022,-42.52022 c 0,7.82785 -6.34555,14.1734 -14.1734,14.1734 -7.82783,0 -14.17338,-6.34555 -14.17338,-14.1734 0,-7.82785 6.34555,-14.1734 14.17338,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                        />
+                        <g transform="translate(-59.184,-45.73)" id="g42">
+                          <g id="g44">
+                            <g transform="translate(-40.228,-53.682)" id="g46">
+                              <text
+                                id="text50"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 9.96259975px;
+                                  font-family: CMR10;
+                                  -inkscape-font-specification: CMR10;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,40.228,53.682)"
+                              >
+                                <tspan id="tspan48" y="0" x="0">1</tspan>
+                              </text>
+                              <g
+                                transform="translate(40.228,53.682)"
+                                id="g52"
+                              />
+                            </g>
+                          </g>
+                          <g transform="translate(59.184,45.73)" id="g54" />
+                        </g>
+                      </g>
+                      <path
+                        id="path56"
+                        style="
+                          fill: none;
+                          stroke: #ffffff;
+                          stroke-width: 0.3985;
+                          stroke-linecap: butt;
+                          stroke-linejoin: miter;
+                          stroke-miterlimit: 10;
+                          stroke-dasharray: none;
+                          stroke-opacity: 1;
+                        "
+                        d="M -11.49771,-8.62344 -42.32672,-31.745"
+                      />
+                      <g
+                        transform="matrix(-0.79999,-0.59996,0.59996,-0.79999,-42.3267,-31.745)"
+                        id="g58"
+                      >
+                        <g id="g60">
+                          <path
+                            id="path62"
+                            style="
+                              fill: #ffffff;
+                              fill-opacity: 1;
+                              fill-rule: nonzero;
+                              stroke: none;
+                            "
+                            d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                          />
+                        </g>
+                      </g>
+                      <g id="g64">
+                        <g id="g66">
+                          <path
+                            id="path68"
+                            style="
+                              fill: none;
+                              stroke: #ffffff;
+                              stroke-width: 0.3985;
+                              stroke-linecap: butt;
+                              stroke-linejoin: miter;
+                              stroke-miterlimit: 10;
+                              stroke-dasharray: none;
+                              stroke-opacity: 1;
+                            "
+                            d="m -70.867,-85.04044 c 0,7.82785 -6.34555,14.17341 -14.1734,14.17341 -7.82786,0 -14.1734,-6.34556 -14.1734,-14.17341 0,-7.82785 6.34554,-14.1734 14.1734,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                          />
+                          <g transform="translate(-87.53,-88.25)" id="g70">
+                            <g id="g72">
+                              <g
+                                transform="translate(-11.882,-11.162)"
+                                id="g74"
+                              >
+                                <text
+                                  id="text78"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,11.882,11.162)"
+                                >
+                                  <tspan id="tspan76" y="0" x="0">3</tspan>
+                                </text>
+                                <g
+                                  transform="translate(11.882,11.162)"
+                                  id="g80"
+                                />
+                              </g>
+                            </g>
+                            <g transform="translate(87.53,88.25)" id="g82" />
+                          </g>
+                        </g>
+                        <path
+                          id="path84"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="M -64.66571,-54.47849 -75.07896,-70.09811"
+                        />
+                        <g
+                          transform="matrix(-0.55467,-0.83202,0.83202,-0.55467,-75.07896,-70.09811)"
+                          id="g86"
+                        >
+                          <g id="g88">
+                            <path
+                              id="path90"
+                              style="
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                      <g id="g92">
+                        <g id="g94">
+                          <path
+                            id="path96"
+                            style="
+                              fill: none;
+                              stroke: #ffffff;
+                              stroke-width: 0.3985;
+                              stroke-linecap: butt;
+                              stroke-linejoin: miter;
+                              stroke-miterlimit: 10;
+                              stroke-dasharray: none;
+                              stroke-opacity: 1;
+                            "
+                            d="m -14.17337,-85.04044 c 0,7.82785 -6.34555,14.17341 -14.1734,14.17341 -7.82785,0 -14.1734,-6.34556 -14.1734,-14.17341 0,-7.82785 6.34555,-14.1734 14.1734,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                          />
+                          <g transform="translate(-30.837,-88.25)" id="g98">
+                            <g id="g100">
+                              <g
+                                transform="translate(-68.575,-11.162)"
+                                id="g102"
+                              >
+                                <text
+                                  id="text106"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,68.575,11.162)"
+                                >
+                                  <tspan id="tspan104" y="0" x="0">4</tspan>
+                                </text>
+                                <g
+                                  transform="translate(68.575,11.162)"
+                                  id="g108"
+                                />
+                              </g>
+                            </g>
+                            <g transform="translate(30.837,88.25)" id="g110" />
+                          </g>
+                        </g>
+                        <path
+                          id="path112"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="m -48.72151,-54.47849 10.4133,-15.61962"
+                        />
+                        <g
+                          transform="matrix(0.55467,-0.83202,0.83202,0.55467,-38.30821,-70.09811)"
+                          id="g114"
+                        >
+                          <g id="g116">
+                            <path
+                              id="path118"
+                              style="
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                    <g id="g120">
+                      <g id="g122">
+                        <path
+                          id="path124"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="m 70.86705,-42.52022 c 0,7.82785 -6.34555,14.1734 -14.17339,14.1734 -7.82785,0 -14.1734,-6.34555 -14.1734,-14.1734 0,-7.82785 6.34555,-14.1734 14.1734,-14.1734 7.82784,0 14.17339,6.34555 14.17339,14.1734 z"
+                        />
+                        <g transform="translate(54.202,-45.73)" id="g126">
+                          <g id="g128">
+                            <g
+                              transform="translate(-153.614,-53.682)"
+                              id="g130"
+                            >
+                              <text
+                                id="text134"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 9.96259975px;
+                                  font-family: CMR10;
+                                  -inkscape-font-specification: CMR10;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,153.614,53.682)"
+                              >
+                                <tspan id="tspan132" y="0" x="0">2</tspan>
+                              </text>
+                              <g
+                                transform="translate(153.614,53.682)"
+                                id="g136"
+                              />
+                            </g>
+                          </g>
+                          <g transform="translate(-54.202,45.73)" id="g138" />
+                        </g>
+                      </g>
+                      <path
+                        id="path140"
+                        style="
+                          fill: none;
+                          stroke: #ffffff;
+                          stroke-width: 0.3985;
+                          stroke-linecap: butt;
+                          stroke-linejoin: miter;
+                          stroke-miterlimit: 10;
+                          stroke-dasharray: none;
+                          stroke-opacity: 1;
+                        "
+                        d="M 11.49771,-8.62344 42.32677,-31.745"
+                      />
+                      <g
+                        transform="matrix(0.79999,-0.59996,0.59996,0.79999,42.32675,-31.745)"
+                        id="g142"
+                      >
+                        <g id="g144">
+                          <path
+                            id="path146"
+                            style="
+                              fill: #ffffff;
+                              fill-opacity: 1;
+                              fill-rule: nonzero;
+                              stroke: none;
+                            "
+                            d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                          />
+                        </g>
+                      </g>
+                      <g id="g148">
+                        <g id="g150">
+                          <path
+                            id="path152"
+                            style="
+                              fill: none;
+                              stroke: #ffffff;
+                              stroke-width: 0.3985;
+                              stroke-linecap: butt;
+                              stroke-linejoin: miter;
+                              stroke-miterlimit: 10;
+                              stroke-dasharray: none;
+                              stroke-opacity: 1;
+                            "
+                            d="m 42.52026,-85.04044 c 0,7.82785 -6.34555,14.17341 -14.1734,14.17341 -7.82785,0 -14.1734,-6.34556 -14.1734,-14.17341 0,-7.82785 6.34555,-14.1734 14.1734,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                          />
+                          <g transform="translate(25.856,-88.25)" id="g154">
+                            <g id="g156">
+                              <g
+                                transform="translate(-125.268,-11.162)"
+                                id="g158"
+                              >
+                                <text
+                                  id="text162"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,125.268,11.162)"
+                                >
+                                  <tspan id="tspan160" y="0" x="0">5</tspan>
+                                </text>
+                                <g
+                                  transform="translate(125.268,11.162)"
+                                  id="g164"
+                                />
+                              </g>
+                            </g>
+                            <g transform="translate(-25.856,88.25)" id="g166" />
+                          </g>
+                        </g>
+                        <path
+                          id="path168"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="M 48.72156,-54.47849 38.3083,-70.09811"
+                        />
+                        <g
+                          transform="matrix(-0.55467,-0.83202,0.83202,-0.55467,38.3083,-70.09811)"
+                          id="g170"
+                        >
+                          <g id="g172">
+                            <path
+                              id="path174"
+                              style="
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                      <g id="g176">
+                        <g id="g178">
+                          <path
+                            id="path180"
+                            style="
+                              fill: none;
+                              stroke: #ffffff;
+                              stroke-width: 0.3985;
+                              stroke-linecap: butt;
+                              stroke-linejoin: miter;
+                              stroke-miterlimit: 10;
+                              stroke-dasharray: none;
+                              stroke-opacity: 1;
+                            "
+                            d="m 99.2139,-85.04044 c 0,7.82785 -6.34555,14.17341 -14.1734,14.17341 -7.82785,0 -14.1734,-6.34556 -14.1734,-14.17341 0,-7.82785 6.34555,-14.1734 14.1734,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                          />
+                          <g transform="translate(82.549,-88.25)" id="g182">
+                            <g id="g184">
+                              <g
+                                transform="translate(-181.961,-11.162)"
+                                id="g186"
+                              >
+                                <text
+                                  id="text190"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,181.961,11.162)"
+                                >
+                                  <tspan id="tspan188" y="0" x="0">6</tspan>
+                                </text>
+                                <g
+                                  transform="translate(181.961,11.162)"
+                                  id="g192"
+                                />
+                              </g>
+                            </g>
+                            <g transform="translate(-82.549,88.25)" id="g194" />
+                          </g>
+                        </g>
+                        <path
+                          id="path196"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="m 64.66576,-54.47849 10.4133,-15.61962"
+                        />
+                        <g
+                          transform="matrix(0.55467,-0.83202,0.83202,0.55467,75.07906,-70.09811)"
+                          id="g198"
+                        >
+                          <g id="g200">
+                            <path
+                              id="path202"
+                              style="
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <p style="font-size: 12px">
+            Seção de um árvore binária cujo valor do nó raiz é '1'. Os filhos do
+            nó raiz têm, por sua vez, valores '2' (esquerdo) e '3' (direito)
+          </p>
+        </div>
+        <p>
+          A partir de agora, a não ser que explicitado o contrário, ao se
+          referir a uma árvore binária qualquer \( T \), isso significará que \(
+          T \), quando visto isoladamente, é também um nó raiz. Observe que as
+          árvores aqui trabalhadas são infinitas, uma vez que o processo de
+          criação de novos nós/árvores é recursivo e sem condição para parada
+          (isto é, não há um caso base).
+        </p>
+      </section>
+
+      <section>
+        <h2>Prova de não-enumerabilidade</h2>
+        <p>
+          <strong>Proposição:</strong>
+          <em
+            >sendo dada uma árvore binária \( T = (v, E, D) \) qualquer, o
+            conjunto \( \mathbb{K} \) de todos os infinitos caminhos que têm
+            início no seu nó raiz é não-enumerável.</em
+          >
+        </p>
+
+        <p>
+          Partindo-se do nó raiz, há uma dentre duas possibilidades de escolha:
+          ou se “desce” pela aresta esquerda ou se faz o mesmo, mas pela
+          direita. Supondo-se que a decisão tenha sido tomada, então a mesma
+          situação dicotômica valerá, sucessivamente, para todos os demais (e
+          infinitos) nós. Se a cada escolha de aresta for associado \( 0 \)
+          àquelas correspondentes à esquerda e \( 1 \) para o caso análogo, mas
+          à direita, então todos os infinitos caminhos possíveis originados no
+          nó raiz poderão ser representados por alguma sequência infinita de
+          símbolos \( s_1 s_2 s_3 s_4 s_5 s_6 \dots \), \( s_i \in \{0, 1\} \).
+        </p>
+        <p>
+          Perceba-se que, pela natureza da construção dos caminhos como
+          sequências binárias, não há ambiguidade em relação à notação (que é,
+          para cada símbolo, dicotômica). Quer dizer, suponha que \( s_1 s_2 s_3
+          s_4 s_5 s_6 \dots \) e \( t_1 t_2 t_3 t_4 t_5 t_6 \dots \), \( s_i,
+          t_i \in \{0, 1\} \) são dois caminhos distintos. Então há,
+          necessariamente, um índice mínimo \( k \), tal que \( s_k \neq t_k \).
+          Isso implica que, no nó correspondente a essa posição, cada caminho
+          toma uma direção diferente (um segue à esquerda, o outro à direita), o
+          que os faz distintos. Logo,
+          <strong>cada caminho tem uma representação única</strong>.
+        </p>
+        <p>
+          Considere, agora, que o conjunto \( \mathbb{K} \) (descrito
+          anteriormente) é enumerável. Então, há alguma função \( f: \mathbb{N}
+          \to \mathbb{K} \) que é, ao mesmo tempo, injetiva e sobrejetiva.
+          Ter-se-ia, por exemplo:
+        </p>
+
+        <p>
+          <script type="math/tex; mode=display">
+            \begin{array}{lcl}
+            &&&0&1&2&3&4&5&6&7&8&9 \dots\\
+            \hline
+            0&\mapsto&&0&1&1&0&1&1&1&1&0&1 \dots\\
+            1&\mapsto&&1&1&0&0&1&0&0&0&0&1 \dots\\
+            2&\mapsto&&0&1&1&1&0&0&1&1&1&1 \dots\\
+            3&\mapsto&&1&1&0&0&0&0&0&0&0&0 \dots\\
+            4&\mapsto&&0&1&1&1&0&0&1&1&1&1 \dots\\
+            \end{array}
+          </script>
+        </p>
+        \[\vdots\]
+
+        <p>
+          Tomando \( s_{ij} \), com \( i,j \in \mathbb{N} \), como o símbolo
+          posicionado na linha \( i \) e na coluna \( j \), pode-se formar a
+          sequência \( k_0 k_1 k_2 k_3 k_4 \dots \), onde:
+        </p>
+        <p>
+          \[ k_i = \begin{cases} 0, & \text{se } s_{ii} = 1 \\ 1, & \text{se }
+          s_{ii} = 0 \end{cases} \]
+        </p>
+        <p>
+          Então, \( k_0 k_1 k_2 k_3 k_4 \dots \), por constituir um caminho
+          possível de \( T \), pertence a \( \mathbb{K} \) e, assim, deve ser
+          mapeado pela função de contagem. No entanto, por definição, \( k_0 k_1
+          k_2 k_3 k_4 \dots \) é diferente (por pelo menos um símbolo) de
+          qualquer sequência listada no processo de enumeração.
+        </p>
+        <p>
+          Chegou-se a <strong>contradição</strong>. Portanto, a consideração
+          inicial não pode ser verdadeira: o conjunto \( \mathbb{K} \) de todos
+          os infinitos caminhos que têm início no nó raiz de uma árvore binária
+          qualquer \( T \) é não-enumerável.
+        </p>
+      </section>
+
+      <section>
+        <h2>Equivalência Cantor - Árvore Binária</h2>
+        <p>
+          Agora, mostrar-se-á que o processo de construção de uma árvore binária
+          é equivalente àquele do conjunto de Cantor. Em particular, que
+          qualquer caminho percorrido numa árvore binária (a partir de seu nó
+          raiz) possui um ponto correspondente no conjunto de Cantor (e
+          vice-versa).
+        </p>
+        <p>
+          Primeiro, considerando uma árvore binária \( R \), que se faça
+          associar o seu nó raiz, \( r = (0, E, D) \), ao intervalo \( C_0 = [0,
+          1] \), que está no <em>estágio 0</em> do processo de criação conjunto
+          de Cantor.
+        </p>
+        <p>
+          A seguir, a cada nível \( n \) de R, é possível correspondê-lo ao
+          respectivo estágio de criação do conjunto de Cantor, de modo que cada
+          um dos intervalos daquele estágio esteja, de forma ordenada,
+          relacionado a um único nó, da esquerda para a direita, naquele nível
+          da árvore.
+        </p>
+        <p>Visualmente, ter-se-ia a seguinte correspondência:</p>
+        <div class="correspondence_tree_cantor_set" style="text-align: center">
+          <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <svg
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns:cc="http://creativecommons.org/ns#"
+            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            xmlns:svg="http://www.w3.org/2000/svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 265.09866 151.71201"
+            height="151.71201"
+            width="265.09866"
+            xml:space="preserve"
+            id="svg2"
+            version="1.1"
+          >
+            <metadata id="metadata8">
+              <rdf:RDF
+                ><cc:Work rdf:about=""
+                  ><dc:format>image/svg+xml</dc:format
+                  ><dc:type
+                    rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work
+              ></rdf:RDF>
+            </metadata>
+            <defs id="defs6" />
+            <g transform="matrix(1.3333333,0,0,-1.3333333,0,151.712)" id="g10">
+              <g transform="translate(99.412,99.412)" id="g12">
+                <g id="g14">
+                  <g id="g16">
+                    <g id="g18">
+                      <path
+                        id="path20"
+                        style="
+                          fill: none;
+                          stroke: #ffffff;
+                          stroke-width: 0.3985;
+                          stroke-linecap: butt;
+                          stroke-linejoin: miter;
+                          stroke-miterlimit: 10;
+                          stroke-dasharray: none;
+                          stroke-opacity: 1;
+                        "
+                        d="M 14.17339,0 C 14.17339,7.82784 7.82784,14.17339 0,14.17339 -7.82784,14.17339 -14.17339,7.82784 -14.17339,0 c 0,-7.82784 6.34555,-14.17339 14.17339,-14.17339 7.82784,0 14.17339,6.34555 14.17339,14.17339 z"
+                      />
+                      <g transform="translate(-9.963,-2.491)" id="g22">
+                        <g id="g24">
+                          <g transform="translate(-89.449,-96.921)" id="g26">
+                            <text
+                              id="text30"
+                              style="
+                                font-variant: normal;
+                                font-weight: normal;
+                                font-size: 9.96259975px;
+                                font-family: CMR10;
+                                -inkscape-font-specification: CMR10;
+                                writing-mode: lr-tb;
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              transform="matrix(1,0,0,-1,89.449,96.921)"
+                            >
+                              <tspan id="tspan28" y="0" x="0 2.7676103">
+                                [0
+                              </tspan>
+                            </text>
+                            <text
+                              id="text34"
+                              style="
+                                font-variant: normal;
+                                font-weight: normal;
+                                font-size: 9.96259975px;
+                                font-family: CMMI10;
+                                -inkscape-font-specification: CMMI10;
+                                writing-mode: lr-tb;
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              transform="matrix(1,0,0,-1,97.198,96.921)"
+                            >
+                              <tspan id="tspan32" y="0" x="0">,</tspan>
+                            </text>
+                            <text
+                              id="text38"
+                              style="
+                                font-variant: normal;
+                                font-weight: normal;
+                                font-size: 9.96259975px;
+                                font-family: CMR10;
+                                -inkscape-font-specification: CMR10;
+                                writing-mode: lr-tb;
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              transform="matrix(1,0,0,-1,101.626,96.921)"
+                            >
+                              <tspan id="tspan36" y="0" x="0 4.9812999">
+                                1]
+                              </tspan>
+                            </text>
+                            <g transform="translate(89.449,96.921)" id="g40" />
+                          </g>
+                        </g>
+                        <g transform="translate(9.963,2.491)" id="g42" />
+                      </g>
+                    </g>
+                    <g id="g44">
+                      <g id="g46">
+                        <path
+                          id="path48"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="m -42.52022,-42.52022 c 0,7.82785 -6.34555,14.1734 -14.1734,14.1734 -7.82783,0 -14.17338,-6.34555 -14.17338,-14.1734 0,-7.82785 6.34555,-14.1734 14.17338,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                        />
+                        <g transform="translate(-67.346,-45.011)" id="g50">
+                          <g id="g52">
+                            <g transform="translate(-32.066,-54.401)" id="g54">
+                              <text
+                                id="text58"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 9.96259975px;
+                                  font-family: CMR10;
+                                  -inkscape-font-specification: CMR10;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,32.066,54.401)"
+                              >
+                                <tspan id="tspan56" y="0" x="0 2.7676103">
+                                  [0
+                                </tspan>
+                              </text>
+                              <text
+                                id="text62"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 9.96259975px;
+                                  font-family: CMMI10;
+                                  -inkscape-font-specification: CMMI10;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,39.815,54.401)"
+                              >
+                                <tspan id="tspan60" y="0" x="0">,</tspan>
+                              </text>
+                              <text
+                                id="text66"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 6.97380018px;
+                                  font-family: CMR7;
+                                  -inkscape-font-specification: CMR7;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,45.438,58.324)"
+                              >
+                                <tspan id="tspan64" y="0" x="0">1</tspan>
+                              </text>
+                              <g transform="translate(45.438,56.892)" id="g68">
+                                <path
+                                  id="path70"
+                                  style="
+                                    fill: none;
+                                    stroke: #ffffff;
+                                    stroke-width: 0.398;
+                                    stroke-linecap: butt;
+                                    stroke-linejoin: miter;
+                                    stroke-miterlimit: 10;
+                                    stroke-dasharray: none;
+                                    stroke-opacity: 1;
+                                  "
+                                  d="M 0,0 H 3.971"
+                                />
+                              </g>
+                              <text
+                                id="text74"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 6.97380018px;
+                                  font-family: CMR7;
+                                  -inkscape-font-specification: CMR7;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,45.438,50.966)"
+                              >
+                                <tspan id="tspan72" y="0" x="0">3</tspan>
+                              </text>
+                              <text
+                                id="text78"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 9.96259975px;
+                                  font-family: CMR10;
+                                  -inkscape-font-specification: CMR10;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,50.605,54.401)"
+                              >
+                                <tspan id="tspan76" y="0" x="0">]</tspan>
+                              </text>
+                              <g
+                                transform="translate(32.066,54.401)"
+                                id="g80"
+                              />
+                            </g>
+                          </g>
+                          <g transform="translate(67.346,45.011)" id="g82" />
+                        </g>
+                      </g>
+                      <path
+                        id="path84"
+                        style="
+                          fill: none;
+                          stroke: #ffffff;
+                          stroke-width: 0.3985;
+                          stroke-linecap: butt;
+                          stroke-linejoin: miter;
+                          stroke-miterlimit: 10;
+                          stroke-dasharray: none;
+                          stroke-opacity: 1;
+                        "
+                        d="M -11.49771,-8.62344 -42.32672,-31.745"
+                      />
+                      <g
+                        transform="matrix(-0.79999,-0.59996,0.59996,-0.79999,-42.3267,-31.745)"
+                        id="g86"
+                      >
+                        <g id="g88">
+                          <path
+                            id="path90"
+                            style="
+                              fill: #ffffff;
+                              fill-opacity: 1;
+                              fill-rule: nonzero;
+                              stroke: none;
+                            "
+                            d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                          />
+                        </g>
+                      </g>
+                      <g id="g92">
+                        <g id="g94">
+                          <path
+                            id="path96"
+                            style="
+                              fill: none;
+                              stroke: #ffffff;
+                              stroke-width: 0.3985;
+                              stroke-linecap: butt;
+                              stroke-linejoin: miter;
+                              stroke-miterlimit: 10;
+                              stroke-dasharray: none;
+                              stroke-opacity: 1;
+                            "
+                            d="m -70.867,-85.04044 c 0,7.82785 -6.34555,14.17341 -14.1734,14.17341 -7.82786,0 -14.1734,-6.34556 -14.1734,-14.17341 0,-7.82785 6.34554,-14.1734 14.1734,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                          />
+                          <g transform="translate(-95.693,-87.53)" id="g98">
+                            <g id="g100">
+                              <g
+                                transform="translate(-3.719,-11.882)"
+                                id="g102"
+                              >
+                                <text
+                                  id="text106"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,3.719,11.882)"
+                                >
+                                  <tspan id="tspan104" y="0" x="0 2.7676103">
+                                    [0
+                                  </tspan>
+                                </text>
+                                <text
+                                  id="text110"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMMI10;
+                                    -inkscape-font-specification: CMMI10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,11.468,11.882)"
+                                >
+                                  <tspan id="tspan108" y="0" x="0">,</tspan>
+                                </text>
+                                <text
+                                  id="text114"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,17.091,15.804)"
+                                >
+                                  <tspan id="tspan112" y="0" x="0">1</tspan>
+                                </text>
+                                <g
+                                  transform="translate(17.091,14.372)"
+                                  id="g116"
+                                >
+                                  <path
+                                    id="path118"
+                                    style="
+                                      fill: none;
+                                      stroke: #ffffff;
+                                      stroke-width: 0.398;
+                                      stroke-linecap: butt;
+                                      stroke-linejoin: miter;
+                                      stroke-miterlimit: 10;
+                                      stroke-dasharray: none;
+                                      stroke-opacity: 1;
+                                    "
+                                    d="M 0,0 H 3.971"
+                                  />
+                                </g>
+                                <text
+                                  id="text122"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,17.091,8.446)"
+                                >
+                                  <tspan id="tspan120" y="0" x="0">9</tspan>
+                                </text>
+                                <text
+                                  id="text126"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,22.258,11.882)"
+                                >
+                                  <tspan id="tspan124" y="0" x="0">]</tspan>
+                                </text>
+                                <g
+                                  transform="translate(3.719,11.882)"
+                                  id="g128"
+                                />
+                              </g>
+                            </g>
+                            <g transform="translate(95.693,87.53)" id="g130" />
+                          </g>
+                        </g>
+                        <path
+                          id="path132"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="M -64.66571,-54.47849 -75.07896,-70.09811"
+                        />
+                        <g
+                          transform="matrix(-0.55467,-0.83202,0.83202,-0.55467,-75.07896,-70.09811)"
+                          id="g134"
+                        >
+                          <g id="g136">
+                            <path
+                              id="path138"
+                              style="
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                      <g id="g140">
+                        <g id="g142">
+                          <path
+                            id="path144"
+                            style="
+                              fill: none;
+                              stroke: #ffffff;
+                              stroke-width: 0.3985;
+                              stroke-linecap: butt;
+                              stroke-linejoin: miter;
+                              stroke-miterlimit: 10;
+                              stroke-dasharray: none;
+                              stroke-opacity: 1;
+                            "
+                            d="m -14.17337,-85.04044 c 0,7.82785 -6.34555,14.17341 -14.1734,14.17341 -7.82785,0 -14.1734,-6.34556 -14.1734,-14.17341 0,-7.82785 6.34555,-14.1734 14.1734,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                          />
+                          <g transform="translate(-39.69,-87.53)" id="g146">
+                            <g id="g148">
+                              <g
+                                transform="translate(-59.722,-11.882)"
+                                id="g150"
+                              >
+                                <text
+                                  id="text154"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,59.722,11.882)"
+                                >
+                                  <tspan id="tspan152" y="0" x="0">[</tspan>
+                                </text>
+                                <text
+                                  id="text158"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,63.685,15.804)"
+                                >
+                                  <tspan id="tspan156" y="0" x="0">2</tspan>
+                                </text>
+                                <g
+                                  transform="translate(63.685,14.372)"
+                                  id="g160"
+                                >
+                                  <path
+                                    id="path162"
+                                    style="
+                                      fill: none;
+                                      stroke: #ffffff;
+                                      stroke-width: 0.398;
+                                      stroke-linecap: butt;
+                                      stroke-linejoin: miter;
+                                      stroke-miterlimit: 10;
+                                      stroke-dasharray: none;
+                                      stroke-opacity: 1;
+                                    "
+                                    d="M 0,0 H 3.971"
+                                  />
+                                </g>
+                                <text
+                                  id="text166"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,63.685,8.446)"
+                                >
+                                  <tspan id="tspan164" y="0" x="0">9</tspan>
+                                </text>
+                                <text
+                                  id="text170"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMMI10;
+                                    -inkscape-font-specification: CMMI10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,68.851,11.882)"
+                                >
+                                  <tspan id="tspan168" y="0" x="0">,</tspan>
+                                </text>
+                                <text
+                                  id="text174"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,74.475,15.804)"
+                                >
+                                  <tspan id="tspan172" y="0" x="0">1</tspan>
+                                </text>
+                                <g
+                                  transform="translate(74.475,14.372)"
+                                  id="g176"
+                                >
+                                  <path
+                                    id="path178"
+                                    style="
+                                      fill: none;
+                                      stroke: #ffffff;
+                                      stroke-width: 0.398;
+                                      stroke-linecap: butt;
+                                      stroke-linejoin: miter;
+                                      stroke-miterlimit: 10;
+                                      stroke-dasharray: none;
+                                      stroke-opacity: 1;
+                                    "
+                                    d="M 0,0 H 3.971"
+                                  />
+                                </g>
+                                <text
+                                  id="text182"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,74.475,8.446)"
+                                >
+                                  <tspan id="tspan180" y="0" x="0">3</tspan>
+                                </text>
+                                <text
+                                  id="text186"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,79.642,11.882)"
+                                >
+                                  <tspan id="tspan184" y="0" x="0">]</tspan>
+                                </text>
+                                <g
+                                  transform="translate(59.722,11.882)"
+                                  id="g188"
+                                />
+                              </g>
+                            </g>
+                            <g transform="translate(39.69,87.53)" id="g190" />
+                          </g>
+                        </g>
+                        <path
+                          id="path192"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="m -48.72151,-54.47849 10.4133,-15.61962"
+                        />
+                        <g
+                          transform="matrix(0.55467,-0.83202,0.83202,0.55467,-38.30821,-70.09811)"
+                          id="g194"
+                        >
+                          <g id="g196">
+                            <path
+                              id="path198"
+                              style="
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                    <g id="g200">
+                      <g id="g202">
+                        <path
+                          id="path204"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="m 70.86705,-42.52022 c 0,7.82785 -6.34555,14.1734 -14.17339,14.1734 -7.82785,0 -14.1734,-6.34555 -14.1734,-14.1734 0,-7.82785 6.34555,-14.1734 14.1734,-14.1734 7.82784,0 14.17339,6.34555 14.17339,14.1734 z"
+                        />
+                        <g transform="translate(46.04,-45.01)" id="g206">
+                          <g id="g208">
+                            <g
+                              transform="translate(-145.452,-54.402)"
+                              id="g210"
+                            >
+                              <text
+                                id="text214"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 9.96259975px;
+                                  font-family: CMR10;
+                                  -inkscape-font-specification: CMR10;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,145.452,54.402)"
+                              >
+                                <tspan id="tspan212" y="0" x="0">[</tspan>
+                              </text>
+                              <text
+                                id="text218"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 6.97380018px;
+                                  font-family: CMR7;
+                                  -inkscape-font-specification: CMR7;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,149.415,58.324)"
+                              >
+                                <tspan id="tspan216" y="0" x="0">2</tspan>
+                              </text>
+                              <g
+                                transform="translate(149.415,56.892)"
+                                id="g220"
+                              >
+                                <path
+                                  id="path222"
+                                  style="
+                                    fill: none;
+                                    stroke: #ffffff;
+                                    stroke-width: 0.398;
+                                    stroke-linecap: butt;
+                                    stroke-linejoin: miter;
+                                    stroke-miterlimit: 10;
+                                    stroke-dasharray: none;
+                                    stroke-opacity: 1;
+                                  "
+                                  d="M 0,0 H 3.971"
+                                />
+                              </g>
+                              <text
+                                id="text226"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 6.97380018px;
+                                  font-family: CMR7;
+                                  -inkscape-font-specification: CMR7;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,149.415,50.966)"
+                              >
+                                <tspan id="tspan224" y="0" x="0">3</tspan>
+                              </text>
+                              <text
+                                id="text230"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 9.96259975px;
+                                  font-family: CMMI10;
+                                  -inkscape-font-specification: CMMI10;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,154.581,54.402)"
+                              >
+                                <tspan id="tspan228" y="0" x="0">,</tspan>
+                              </text>
+                              <text
+                                id="text234"
+                                style="
+                                  font-variant: normal;
+                                  font-weight: normal;
+                                  font-size: 9.96259975px;
+                                  font-family: CMR10;
+                                  -inkscape-font-specification: CMR10;
+                                  writing-mode: lr-tb;
+                                  fill: #ffffff;
+                                  fill-opacity: 1;
+                                  fill-rule: nonzero;
+                                  stroke: none;
+                                "
+                                transform="matrix(1,0,0,-1,159.009,54.402)"
+                              >
+                                <tspan id="tspan232" y="0" x="0 4.9812999">
+                                  1]
+                                </tspan>
+                              </text>
+                              <g
+                                transform="translate(145.452,54.402)"
+                                id="g236"
+                              />
+                            </g>
+                          </g>
+                          <g transform="translate(-46.04,45.01)" id="g238" />
+                        </g>
+                      </g>
+                      <path
+                        id="path240"
+                        style="
+                          fill: none;
+                          stroke: #ffffff;
+                          stroke-width: 0.3985;
+                          stroke-linecap: butt;
+                          stroke-linejoin: miter;
+                          stroke-miterlimit: 10;
+                          stroke-dasharray: none;
+                          stroke-opacity: 1;
+                        "
+                        d="M 11.49771,-8.62344 42.32677,-31.745"
+                      />
+                      <g
+                        transform="matrix(0.79999,-0.59996,0.59996,0.79999,42.32675,-31.745)"
+                        id="g242"
+                      >
+                        <g id="g244">
+                          <path
+                            id="path246"
+                            style="
+                              fill: #ffffff;
+                              fill-opacity: 1;
+                              fill-rule: nonzero;
+                              stroke: none;
+                            "
+                            d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                          />
+                        </g>
+                      </g>
+                      <g id="g248">
+                        <g id="g250">
+                          <path
+                            id="path252"
+                            style="
+                              fill: none;
+                              stroke: #ffffff;
+                              stroke-width: 0.3985;
+                              stroke-linecap: butt;
+                              stroke-linejoin: miter;
+                              stroke-miterlimit: 10;
+                              stroke-dasharray: none;
+                              stroke-opacity: 1;
+                            "
+                            d="m 42.52026,-85.04044 c 0,7.82785 -6.34555,14.17341 -14.1734,14.17341 -7.82785,0 -14.1734,-6.34556 -14.1734,-14.17341 0,-7.82785 6.34555,-14.1734 14.1734,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                          />
+                          <g transform="translate(17.003,-87.53)" id="g254">
+                            <g id="g256">
+                              <g
+                                transform="translate(-116.415,-11.882)"
+                                id="g258"
+                              >
+                                <text
+                                  id="text262"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,116.415,11.882)"
+                                >
+                                  <tspan id="tspan260" y="0" x="0">[</tspan>
+                                </text>
+                                <text
+                                  id="text266"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,120.378,15.804)"
+                                >
+                                  <tspan id="tspan264" y="0" x="0">2</tspan>
+                                </text>
+                                <g
+                                  transform="translate(120.378,14.373)"
+                                  id="g268"
+                                >
+                                  <path
+                                    id="path270"
+                                    style="
+                                      fill: none;
+                                      stroke: #ffffff;
+                                      stroke-width: 0.398;
+                                      stroke-linecap: butt;
+                                      stroke-linejoin: miter;
+                                      stroke-miterlimit: 10;
+                                      stroke-dasharray: none;
+                                      stroke-opacity: 1;
+                                    "
+                                    d="M 0,0 H 3.971"
+                                  />
+                                </g>
+                                <text
+                                  id="text274"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,120.378,8.446)"
+                                >
+                                  <tspan id="tspan272" y="0" x="0">3</tspan>
+                                </text>
+                                <text
+                                  id="text278"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMMI10;
+                                    -inkscape-font-specification: CMMI10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,125.544,11.882)"
+                                >
+                                  <tspan id="tspan276" y="0" x="0">,</tspan>
+                                </text>
+                                <text
+                                  id="text282"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,131.168,15.804)"
+                                >
+                                  <tspan id="tspan280" y="0" x="0">7</tspan>
+                                </text>
+                                <g
+                                  transform="translate(131.168,14.373)"
+                                  id="g284"
+                                >
+                                  <path
+                                    id="path286"
+                                    style="
+                                      fill: none;
+                                      stroke: #ffffff;
+                                      stroke-width: 0.398;
+                                      stroke-linecap: butt;
+                                      stroke-linejoin: miter;
+                                      stroke-miterlimit: 10;
+                                      stroke-dasharray: none;
+                                      stroke-opacity: 1;
+                                    "
+                                    d="M 0,0 H 3.971"
+                                  />
+                                </g>
+                                <text
+                                  id="text290"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,131.168,8.446)"
+                                >
+                                  <tspan id="tspan288" y="0" x="0">9</tspan>
+                                </text>
+                                <text
+                                  id="text294"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,136.334,11.882)"
+                                >
+                                  <tspan id="tspan292" y="0" x="0">]</tspan>
+                                </text>
+                                <g
+                                  transform="translate(116.415,11.882)"
+                                  id="g296"
+                                />
+                              </g>
+                            </g>
+                            <g transform="translate(-17.003,87.53)" id="g298" />
+                          </g>
+                        </g>
+                        <path
+                          id="path300"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="M 48.72156,-54.47849 38.3083,-70.09811"
+                        />
+                        <g
+                          transform="matrix(-0.55467,-0.83202,0.83202,-0.55467,38.3083,-70.09811)"
+                          id="g302"
+                        >
+                          <g id="g304">
+                            <path
+                              id="path306"
+                              style="
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                      <g id="g308">
+                        <g id="g310">
+                          <path
+                            id="path312"
+                            style="
+                              fill: none;
+                              stroke: #ffffff;
+                              stroke-width: 0.3985;
+                              stroke-linecap: butt;
+                              stroke-linejoin: miter;
+                              stroke-miterlimit: 10;
+                              stroke-dasharray: none;
+                              stroke-opacity: 1;
+                            "
+                            d="m 99.2139,-85.04044 c 0,7.82785 -6.34555,14.17341 -14.1734,14.17341 -7.82785,0 -14.1734,-6.34556 -14.1734,-14.17341 0,-7.82785 6.34555,-14.1734 14.1734,-14.1734 7.82785,0 14.1734,6.34555 14.1734,14.1734 z"
+                          />
+                          <g transform="translate(74.386,-87.53)" id="g314">
+                            <g id="g316">
+                              <g
+                                transform="translate(-173.798,-11.882)"
+                                id="g318"
+                              >
+                                <text
+                                  id="text322"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,173.798,11.882)"
+                                >
+                                  <tspan id="tspan320" y="0" x="0">[</tspan>
+                                </text>
+                                <text
+                                  id="text326"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,177.761,15.804)"
+                                >
+                                  <tspan id="tspan324" y="0" x="0">8</tspan>
+                                </text>
+                                <g
+                                  transform="translate(177.761,14.373)"
+                                  id="g328"
+                                >
+                                  <path
+                                    id="path330"
+                                    style="
+                                      fill: none;
+                                      stroke: #ffffff;
+                                      stroke-width: 0.398;
+                                      stroke-linecap: butt;
+                                      stroke-linejoin: miter;
+                                      stroke-miterlimit: 10;
+                                      stroke-dasharray: none;
+                                      stroke-opacity: 1;
+                                    "
+                                    d="M 0,0 H 3.971"
+                                  />
+                                </g>
+                                <text
+                                  id="text334"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 6.97380018px;
+                                    font-family: CMR7;
+                                    -inkscape-font-specification: CMR7;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,177.761,8.446)"
+                                >
+                                  <tspan id="tspan332" y="0" x="0">9</tspan>
+                                </text>
+                                <text
+                                  id="text338"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMMI10;
+                                    -inkscape-font-specification: CMMI10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,182.928,11.882)"
+                                >
+                                  <tspan id="tspan336" y="0" x="0">,</tspan>
+                                </text>
+                                <text
+                                  id="text342"
+                                  style="
+                                    font-variant: normal;
+                                    font-weight: normal;
+                                    font-size: 9.96259975px;
+                                    font-family: CMR10;
+                                    -inkscape-font-specification: CMR10;
+                                    writing-mode: lr-tb;
+                                    fill: #ffffff;
+                                    fill-opacity: 1;
+                                    fill-rule: nonzero;
+                                    stroke: none;
+                                  "
+                                  transform="matrix(1,0,0,-1,187.356,11.882)"
+                                >
+                                  <tspan id="tspan340" y="0" x="0 4.9812999">
+                                    1]
+                                  </tspan>
+                                </text>
+                                <g
+                                  transform="translate(173.798,11.882)"
+                                  id="g344"
+                                />
+                              </g>
+                            </g>
+                            <g transform="translate(-74.386,87.53)" id="g346" />
+                          </g>
+                        </g>
+                        <path
+                          id="path348"
+                          style="
+                            fill: none;
+                            stroke: #ffffff;
+                            stroke-width: 0.3985;
+                            stroke-linecap: butt;
+                            stroke-linejoin: miter;
+                            stroke-miterlimit: 10;
+                            stroke-dasharray: none;
+                            stroke-opacity: 1;
+                          "
+                          d="m 64.66576,-54.47849 10.4133,-15.61962"
+                        />
+                        <g
+                          transform="matrix(0.55467,-0.83202,0.83202,0.55467,75.07906,-70.09811)"
+                          id="g350"
+                        >
+                          <g id="g352">
+                            <path
+                              id="path354"
+                              style="
+                                fill: #ffffff;
+                                fill-opacity: 1;
+                                fill-rule: nonzero;
+                                stroke: none;
+                              "
+                              d="M 3.58653,0 C 2.52383,0.19925 0.797,0.797 -0.3985,1.49438 V -1.49438 C 0.797,-0.797 2.52383,-0.19925 3.58653,0"
+                            />
+                          </g>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+          <p>\[\vdots\]</p>
+          <p></p>
+        </div>
+
+        <p>
+          Por construção, há uma bijeção entre os estágios de formação do
+          conjunto de Cantor e os níveis da árvore binária \( R \). Em especial,
+          a cada ponto pertencente ao conjunto de cantor, foi a ele associado um
+          caminho único na árvore binária.
+        </p>
+        <p>
+          Como já mostrado, o conjunto \( K \) de todos os caminho possíveis de
+          uma árvore binária a partir de seu nó raiz (codificados como uma
+          sequência binária) é não enumerável. Assim, como há uma bijeção entre
+          \( K \) e \( C \), o conjunto de Cantor, conclui-se que \( C \) é
+          não-enumerável.
+        </p>
+        <p></p>
+        <p style="font-size: 12px; text-align: left"><em>QED</em></p>
+      </section>
+    </main>
+
+    <footer>
+      <aside class="footnotes">
+        <hr />
+        <ol></ol>
+      </aside>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
