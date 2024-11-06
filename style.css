@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: "Computer Modern", serif; 
     color: #e0e0e0;
 }
 
@@ -21,14 +21,14 @@ body {
     background-color: var(--background-color);
     color: var(--primary-color);
     padding: 20px;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
 /* Paragraph */
 p {
     margin: 20px 0;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 /* Text Styles */
@@ -72,14 +72,15 @@ a:focus {
 }
 
 /* Headings */
-h1, h2, h3 {
+h2, h3 {
+    border-bottom: 1px solid #4d4d4d;
     margin-bottom: 20px;
     color: #f0f0f0;
 }
 
 h1 {
     margin-top: 20px;
-    margin-bottom: -20px;
+    margin-bottom: 2px;
 }
 
 /* Code */
@@ -100,6 +101,13 @@ code {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
+
+img {
+    margin: auto;
+    display: block; 
+    max-width: 100%;
+}
+
 
 /* Header and Footer */
 header, footer {
@@ -152,10 +160,6 @@ sup a:hover {
     .head-menu a {
         font-size: 14px;
     }
-
-    .book-menu {
-        display: none; /* Hide the book menu on small screens */
-    }
 }
 
 /* Head Menu */
@@ -198,67 +202,6 @@ sup a:hover {
 .head-menu a:hover {
     background-color: #444444;
     border-radius: 4px;
-}
-
-/* Book Menu */
-.book-menu {
-    width: 300px;
-    left: 200px;
-    padding-right: 10px;
-    background-color: var(--background-color);
-    position: fixed;
-    top: 100px;
-    bottom: 0;
-    z-index: 90;
-    overflow-y: auto;
-    color: var(--secondary-color);
-}
-
-.book-menu a {
-    display: block;
-    padding: 0.5rem 0;
-    color: var(--highlight-color);
-    text-decoration: none;
-    font-size: 1rem;
-    border-bottom: 1px solid #4d4d4d;
-}
-
-.book-menu a:hover {
-    background-color: #444444;
-}
-
-.book-menu a.active {
-    background-color: #007bff;
-    color: white;
-}
-
-.book-menu input.toggle + label {
-    cursor: pointer;
-    padding: 0.5rem 0;
-    font-weight: bold;
-    color: var(--secondary-color);
-}
-
-.book-menu input.toggle {
-    display: none;
-}
-
-.book-menu input.toggle + label + ul {
-    display: none;
-    padding-left: 1rem;
-}
-
-.book-menu input.toggle:checked + label + ul {
-    display: block;
-}
-
-.book-menu input.toggle + label::after {
-    content: "(+)";
-    float: right;
-}
-
-.book-menu input.toggle:checked + label::after {
-    content: "(-)";
 }
 
 /* Logo */
